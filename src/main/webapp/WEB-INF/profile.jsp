@@ -12,5 +12,17 @@
         <h1>Welcome, ${sessionScope.user.username}!</h1>
     </div>
 
+    <c:forEach var="ad" items="${sessionScope.ads}">
+        <div class="col-md-6">
+            <h2><c:out value="${ad.title}"/></h2>
+            <p><c:out value="${ad.description}"/></p>
+            <a href="/adsPage?id=${ad.id}">Link</a>
+            <br>
+            <c:if test="${sessionScope.user != null}">
+                <a href="/ads/delete?id=${ad.id}">Delete Ad</a>
+            </c:if>
+        </div>
+    </c:forEach>
+
 </body>
 </html>

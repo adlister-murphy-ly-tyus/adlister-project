@@ -2,6 +2,7 @@ package com.codeup.adlister.controllers;
 
 import com.codeup.adlister.dao.DaoFactory;
 import com.codeup.adlister.dao.Users;
+import com.codeup.adlister.dao.Validation;
 import com.codeup.adlister.models.User;
 import org.mindrot.jbcrypt.BCrypt;
 
@@ -31,7 +32,11 @@ public class RegisterServlet extends HttpServlet {
                 || password.isEmpty()
                 || (!password.equals(passwordConfirmation));
 
-        if (inputHasErrors) {
+        boolean isValid = Validation.validUsername(username);
+        if (inputHasErrors || !isValid) {
+            if (!isValid) {
+                request.getSession().setAttribute("usernameTaken", true);
+            }
             response.sendRedirect("/register");
             return;
         }
