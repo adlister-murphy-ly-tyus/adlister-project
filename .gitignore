@@ -6,7 +6,7 @@
 # Log file
 *.log
 
-Config.java
+**/Config.java
 
 # BlueJ files
 *.ctxt
