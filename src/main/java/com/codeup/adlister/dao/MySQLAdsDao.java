@@ -62,8 +62,8 @@ public class MySQLAdsDao implements Ads {
             rs.getLong("id"),
             rs.getLong("user_id"),
             rs.getString("title"),
-            rs.getString("description"),
             rs.getDouble("price"),
+            rs.getString("description"),
             rs.getString("img_url")
         );
     }
@@ -75,4 +75,22 @@ public class MySQLAdsDao implements Ads {
         }
         return ads;
     }
+    @Override
+    public Ad findAdById(int id) throws SQLException {
+        String sqlQuery = "SELECT * FROM ads WHERE id = ?";
+        PreparedStatement stmt = connection.prepareStatement(sqlQuery, Statement.NO_GENERATED_KEYS);
+        stmt.setInt(1, id);
+        stmt.executeQuery();
+        ResultSet rs = stmt.getResultSet();
+        rs.next();
+        int adId = rs.getInt(1);
+        int userId = rs.getInt(2);
+        String title = rs.getString(3);
+        double price = rs.getDouble(4);
+        String description = rs.getString(5);
+        String imgUrl = rs.getString(6);
+        Ad ad = new Ad(adId, userId, title, price, description, imgUrl);
+        return ad;
+    }
+
 }
