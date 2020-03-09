@@ -34,7 +34,7 @@ public class CreateAdServlet extends HttpServlet {
         Ad ad = new Ad(
                 sessionUser.getId(), // for now we'll hardcode the user id
                 request.getParameter("title"),
-                request.getParameter("price"),
+              Double.parseDouble(request.getParameter("price")),
                 request.getParameter("description"),
                 request.getParameter("Img_url")
         );
