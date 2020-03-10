@@ -20,9 +20,8 @@ public class AdsUpdateServlet extends HttpServlet {
 
         int id = Integer.parseInt(request.getParameter("id"));
         Ads adsSqlDao = DaoFactory.getAdsDao();
-        System.out.println("here");
 
-        try {
+       try {
             request.setAttribute("ad", adsSqlDao.findAdById(id));//finding ad object with ad info and assinging ad //
         } catch (SQLException e) {
             e.printStackTrace();
@@ -36,19 +35,16 @@ public class AdsUpdateServlet extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
         Ads adsSqlDao = DaoFactory.getAdsDao();
         String title = request.getParameter("title");
-        System.out.println(title);
         String description = request.getParameter("description");
-        System.out.println(description);
         double price = Double.parseDouble(request.getParameter("price"));
-        System.out.println(price);
         String imgUrl = request.getParameter("imgUrl");
         try {
             Ad oldAd = adsSqlDao.findAdById(id);
             User user = (User) request.getSession().getAttribute("user");
             adsSqlDao.update(oldAd, new Ad(user.getId(), title,  price, description, imgUrl));
-            request.getRequestDispatcher("/WEB-INF/profile.jsp").forward(request, response);
         } catch (SQLException e) {
             e.printStackTrace();
         }
+            response.sendRedirect("/profile");
     }
 }

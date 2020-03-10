@@ -11,7 +11,7 @@
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 <h1>Update Ad!</h1>
 
-<form action="${pageContext.request.contextPath}/ads/update" method="post">
+<form action="${pageContext.request.contextPath}/ads/update?id=${ad.id}" method="post">
     <div class="form-group">
         <label for="title">Title</label>
         <input id="title" name="title" class="form-control" type="text" value="${ad.title}"/>
@@ -26,7 +26,7 @@
     </div>
     <div class="form-group">
         <label for="imgUrl">Image</label>
-        <input id="imgUrl" name="imgUrl" class="form-control" type="text"${ad.imgUrl}/>
+       <input id="imgUrl" name="imgUrl" class="form-control" type="text"${ad.imgUrl}/>
     </div>
     <input type="submit" class="btn btn-block btn-primary"/>
 </form>

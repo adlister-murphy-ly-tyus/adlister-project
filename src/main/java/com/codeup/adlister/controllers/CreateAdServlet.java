@@ -15,7 +15,6 @@ import java.io.IOException;
 @WebServlet(name = "controllers.CreateAdServlet", urlPatterns = "/ads/create")
 public class CreateAdServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println(request.getSession().getAttribute("user"));
         if (request.getSession().getAttribute("user") != null) {
             request.getRequestDispatcher("/WEB-INF/ads/create.jsp").forward(request, response);
             return;
@@ -26,10 +25,7 @@ public class CreateAdServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         User sessionUser = (User) request.getSession().getAttribute("user");
-        System.out.println(sessionUser.getId());
-        System.out.println(sessionUser.getUsername());
-        System.out.println(sessionUser.getEmail());
-        System.out.println(sessionUser.getPassword());
+
         Ad ad = new Ad(
                 sessionUser.getId(), // for now we'll hardcode the user id
                 request.getParameter("title"),
