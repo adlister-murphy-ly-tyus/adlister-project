@@ -12,7 +12,7 @@
         <form action="${pageContext.request.contextPath}/ads/create" method="post">
             <div class="form-group">
                 <label for="title">Title</label>
-                <input id="title" name="title" class="form-control" type="text">
+                <input id="title" name="title" class="form-control" type="text" required>
             </div>
             <div class="form-group">
                 <label for="description">Description</label>
@@ -20,12 +20,13 @@
             </div>
             <div class="form-group">
                 <label for="price">Price</label>
-                <input id="price" name="price" class="form-control" type="number"/>
+                <input id="price" name="price" class="form-control" type="number" required/>
             </div>
             <div class="form-group">
                 <label for="image_url">Image</label>
                 <input id="image_url" name="image_url" class="form-control" type="text"/>
             </div>
+            <jsp:include page="../partials/categoriesCheckbox.jsp"/>
             <input type="submit" class="btn btn-block btn-primary">
         </form>
     </div>

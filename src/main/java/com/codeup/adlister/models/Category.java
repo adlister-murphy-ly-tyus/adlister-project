@@ -9,8 +9,12 @@ public class Category {
         this.name = name;
     }
 
+    public Category(String  name) {
+        this.name = name;
+    }
+
     public int getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(int id) {

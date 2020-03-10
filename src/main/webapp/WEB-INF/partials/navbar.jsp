@@ -10,6 +10,7 @@
                <c:when test="${sessionScope.user != null}">
                    <li><a href="/profile">Profile Page</a></li>
                    <li><a href="/ads/create">Create Ad</a></li>
+                   <li><a href="/category/create">Create Category</a></li>
                    <li><a href="/logout">Logout</a></li>
                </c:when>
                <c:otherwise>

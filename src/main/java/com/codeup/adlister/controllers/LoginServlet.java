@@ -37,7 +37,6 @@ public class LoginServlet extends HttpServlet {
         boolean passwordsMatch = BCrypt.checkpw(password, user.getPassword());
         if (passwordsMatch) {
             request.getSession().setAttribute("user", user);
-
             response.sendRedirect("/profile");
         } else {
             response.sendRedirect("/login");
