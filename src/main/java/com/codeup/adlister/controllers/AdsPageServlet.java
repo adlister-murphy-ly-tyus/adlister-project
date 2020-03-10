@@ -3,6 +3,7 @@ package com.codeup.adlister.controllers;
 import com.codeup.adlister.dao.Ads;
 import com.codeup.adlister.dao.DaoFactory;
 import com.codeup.adlister.models.Ad;
+import com.codeup.adlister.models.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -20,7 +21,8 @@ public class AdsPageServlet extends HttpServlet {
         Ad foundAd = null;
         try {
            foundAd = adsSqlDao.findAdById(id);
-       } catch (SQLException e) {
+            User adCreator = DaoFactory.getUsersDao().findByUsername("user");
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         request.setAttribute("ads", foundAd);
