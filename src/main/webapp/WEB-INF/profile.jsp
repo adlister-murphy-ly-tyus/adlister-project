@@ -12,7 +12,14 @@
     <div class="container">
         <h1>Welcome, ${sessionScope.user.username}!</h1>
     </div>
-
+        <div class="container">
+            <h1><c:out value="${sessionScope.user.username}"/> </h1>
+           <ul>
+                <li><c:out value="${sessionScope.user.email}"/></li>
+                <li><c:out value="${sessionScope.user.phoneNumber}"/></li>
+            </ul>
+            <a href="${pageContext.request.contextPath}/updateUser">Update User Info</a>
+        </div>
     <c:forEach var="ad" items="${sessionScope.ads}">
         <div class="col-md-6">
             <h2><c:out value="${ad.title}"/></h2>
@@ -21,7 +28,7 @@
             <br>
             <c:if test="${sessionScope.user != null}">
                 <a href="${pageContext.request.contextPath}/ads/delete?id=${ad.id}">Delete Ad</a>
-                <br>
+               <br>
                 <a href="${pageContext.request.contextPath}/ads/update?id=${ad.id}">Update Ad</a>
             </c:if>
         </div>
