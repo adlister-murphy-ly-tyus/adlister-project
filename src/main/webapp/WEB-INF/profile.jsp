@@ -21,6 +21,8 @@
             <br>
             <c:if test="${sessionScope.user != null}">
                 <a href="${pageContext.request.contextPath}/ads/delete?id=${ad.id}">Delete Ad</a>
+                <br>
+                <a href="${pageContext.request.contextPath}/ads/update?id=${ad.id}">Update Ad</a>
             </c:if>
         </div>
     </c:forEach>

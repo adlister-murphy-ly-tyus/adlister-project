@@ -83,8 +83,20 @@ public class MySQLAdsDao implements Ads {
     }
 
     @Override
-    public Long update(Ad ad, Ad newAd) {
-        return null;
+    public Long update(Ad ad, Ad newAd) throws SQLException {
+        String sqlQuery = "UPDATE ads SET user_id = ?, title = ?, price = ?, description = ?, img_url = ? WHERE id = ?";
+        PreparedStatement stmt = connection.prepareStatement(sqlQuery, Statement.RETURN_GENERATED_KEYS);
+        stmt.setInt(1, (int) ad.getUserId());
+        stmt.setString(2, newAd.getTitle());
+        stmt.setDouble(3, newAd.getPrice());
+        stmt.setString(4, newAd.getDescription());
+        stmt.setString(5, newAd.getImgUrl());
+        stmt.setInt(6, (int) ad.getId());
+        stmt.executeUpdate();
+        ResultSet rs = stmt.getGeneratedKeys();
+        rs.next();
+
+        return rs.getLong(1);
     }
 
     private Ad extractAd(ResultSet rs) throws SQLException {
