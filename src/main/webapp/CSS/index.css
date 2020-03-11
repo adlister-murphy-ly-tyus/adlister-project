@@ -1,0 +1,31 @@
+body{
+border: black 2vw solid;
+}
+
+.jumbotron {
+    background-image: url("/images/vault.jpg");
+    background-size: cover;
+    min-height: 75vh;
+    height: auto;
+    width: 96vw;
+    position: center;
+    z-index: -1;
+}
+
+#welcome{
+    text-align: center;
+    color: lightseagreen;
+    font-family: 'Pacifico', cursive;
+}
+#intro{
+    font-size: xx-large;
+    text-align: center;
+    color: lightseagreen;
+    font-family: 'Roboto', sans-serif;
+}
+
+.black-highlight{
+    text-shadow: 2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000, 1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
+
+
+}

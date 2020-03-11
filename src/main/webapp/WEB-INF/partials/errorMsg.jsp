@@ -4,6 +4,5 @@
         <h3 style="color: red">Username is taken</h3>
         <% request.getSession().removeAttribute("usernameTaken");%>
     </c:when>
-    <c:when test=""></c:when>
 
 </c:choose>
