@@ -12,6 +12,8 @@ public interface Categories {
 
     int findCategoryByName(String name);
 
+    List<String> getCategoriesByAdId(long adId) throws SQLException;
+
     // insert a new ad and return the new ad's id
     Long insert(Category category) throws SQLException;
 

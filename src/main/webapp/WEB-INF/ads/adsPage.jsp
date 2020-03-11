@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: ptyus
-  Date: 3/9/20
-  Time: 2:51 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -20,6 +13,11 @@
 <p>${ads.price}</p>
 <p>${ads.description}</p>
 <p>${ads.imgUrl}</p>
+<h4>Categories</h4>
+<c:forEach var="category" items="${categories}">
+    <p>${category}</p>
+</c:forEach>
+
 
 <c:choose>
     <c:when test="${sessionScope.user == null}">
@@ -35,5 +33,6 @@
 </c:choose>
 
 
+<jsp:include page="../partials/bootstrap-scripts.jsp"/>
 </body>
 </html>

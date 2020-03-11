@@ -49,6 +49,20 @@ public class CategorySQLDao implements Categories {
     }
 
     @Override
+    public List<String> getCategoriesByAdId(long adId) throws SQLException {
+        List<String> categoryList = new ArrayList<>();
+        String sqlQuery = "SELECT name FROM categories AS c JOIN ads_has_category AS ac ON c.id = ac.category_id JOIN ads AS a ON a.id = ac.ads_id WHERE a.id = ?";
+        PreparedStatement stmt = connection.prepareStatement(sqlQuery, Statement.RETURN_GENERATED_KEYS);
+        stmt.setLong(1, adId);
+        stmt.executeQuery();
+        ResultSet rs = stmt.getResultSet();
+        while (rs.next()) {
+            categoryList.add(rs.getString(1));
+        }
+        return categoryList;
+    }
+
+    @Override
     public Long insert(Category category) throws SQLException {
         String sqlQuery = "INSERT INTO categories (name) VALUES (?)";
         PreparedStatement stmt = connection.prepareStatement(sqlQuery, Statement.RETURN_GENERATED_KEYS);

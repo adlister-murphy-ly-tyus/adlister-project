@@ -33,6 +33,6 @@
             </c:if>
         </div>
     </c:forEach>
-
+    <jsp:include page="partials/bootstrap-scripts.jsp"/>
 </body>
 </html>

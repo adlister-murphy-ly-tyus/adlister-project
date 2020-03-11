@@ -35,5 +35,6 @@
 
         </form>
     </div>
+    <jsp:include page="partials/bootstrap-scripts.jsp"/>
 </body>
 </html>

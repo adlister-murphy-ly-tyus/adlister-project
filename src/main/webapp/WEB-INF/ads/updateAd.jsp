@@ -30,5 +30,6 @@
     </div>
     <input type="submit" class="btn btn-block btn-primary"/>
 </form>
+<jsp:include page="../partials/bootstrap-scripts.jsp"/>
 </body>
 </html>

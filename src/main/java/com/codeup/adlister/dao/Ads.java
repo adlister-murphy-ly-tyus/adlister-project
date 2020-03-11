@@ -11,6 +11,10 @@ public interface Ads {
 
     // get a list of all ads by user id
     List<Ad> all(int id);
+
+    // get a list of ads based on search parameter
+    List<Ad> searchAds(String keyword) throws SQLException;
+
     // insert a new ad and return the new ad's id
     Long insert(Ad ad);
 
@@ -21,4 +25,6 @@ public interface Ads {
     Long update(Ad ad, Ad newAd) throws SQLException;
 
     Ad findAdById(int id) throws SQLException;
+
+
 }
