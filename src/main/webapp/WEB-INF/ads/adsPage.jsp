@@ -20,12 +20,17 @@
 <p>${ads.price}</p>
 <p>${ads.description}</p>
 <p>${ads.imgUrl}</p>
+
 <c:choose>
     <c:when test="${sessionScope.user == null}">
         <a href="${pageContext.request.contextPath}/login"> Login to get contact Info</a>
     </c:when>
     <c:otherwise>
-
+        <h1><c:out value="${adCreator.username}"/> </h1>
+        <ul>
+            <li><c:out value="${adCreator.email}"/></li>
+            <li><c:out value="${adCreator.phoneNumber}"/></li>
+        </ul>
     </c:otherwise>
 </c:choose>
 
