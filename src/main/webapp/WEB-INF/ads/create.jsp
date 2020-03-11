@@ -20,7 +20,7 @@
             </div>
             <div class="form-group">
                 <label for="price">Price</label>
-                <input id="price" name="price" class="form-control" type="number" required/>
+                <input id="price" name="price" class="form-control" type="text" required/>
             </div>
             <div class="form-group">
                 <label for="image_url">Image</label>
