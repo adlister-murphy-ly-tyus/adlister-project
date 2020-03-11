@@ -13,7 +13,7 @@
         <form action="/register" method="post">
             <div class="form-group">
                <label for="username">Username</label>
-                <input id="username" name="username" class="form-control" type="text" required>
+               <input id="username" name="username" class="form-control" type="text" required>
             </div>
             <div class="form-group">
               <label for="email">Email</label>
@@ -32,6 +32,7 @@
                 <input id="confirm_password" name="confirm_password" class="form-control" type="password" required>
             </div>
             <input type="submit" class="btn btn-primary btn-block">
+
         </form>
     </div>
 </body>
