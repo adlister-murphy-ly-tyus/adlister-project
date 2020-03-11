@@ -31,7 +31,7 @@ public class DaoFactory {
     }
 
     public static AdCategorySQLDao getAdCategorySQLDao() {
-        if (adCategorySQLDao == null) {
+       if (adCategorySQLDao == null) {
             adCategorySQLDao = new AdCategorySQLDao(config);
         }
         return adCategorySQLDao;
