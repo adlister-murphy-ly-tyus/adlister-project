@@ -18,7 +18,7 @@
             <p><c:out value="${ad.description}"/></p>
             <a href="${pageContext.request.contextPath}/adsPage?id=${ad.id}">Link</a>
             <br>
-            <c:if test="${sessionScope.user != null}">
+           <c:if test="${sessionScope.user != null}">
                 <a href="${pageContext.request.contextPath}/ads/delete?id=${ad.id}">Delete Ad</a>
             </c:if>
         </div>

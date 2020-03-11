@@ -18,15 +18,16 @@ public class AdsPageServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
        int id = Integer.parseInt(request.getParameter("id"));
         Ads adsSqlDao = DaoFactory.getAdsDao();
-        Ad foundAd = null;
+       Ad foundAd = null;
         User adCreator = null;
-        try {
+       try {
            foundAd = adsSqlDao.findAdById(id);
-           adCreator = (User) DaoFactory.getUsersDao().findUserById(foundAd.getUserId());
+           adCreator = DaoFactory.getUsersDao().findUserById(foundAd.getUserId());
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
+       request.getSession().setAttribute("marker", "/adsPage?id=" + id);
         request.setAttribute("adCreator", adCreator);
         request.setAttribute("ads", foundAd);
         request.getRequestDispatcher("/WEB-INF/ads/adsPage.jsp").forward(request, response);
