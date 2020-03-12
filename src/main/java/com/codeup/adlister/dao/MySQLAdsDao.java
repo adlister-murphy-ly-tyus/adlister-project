@@ -43,7 +43,6 @@ public class MySQLAdsDao implements Ads {
         PreparedStatement stmt = null;
         try {
             stmt = connection.prepareStatement("SELECT * FROM ads WHERE user_id = ?");
-            System.out.println(id);
             stmt.setInt(1, id);
             ResultSet rs = stmt.executeQuery();
             return createAdsFromResults(rs);
@@ -56,8 +55,10 @@ public class MySQLAdsDao implements Ads {
     public List<Ad> searchAds(String keyword) throws SQLException {
         List<Ad> adList = new ArrayList<>();
         String sqlQuery = "SELECT * FROM ads WHERE title LIKE ?";
-        PreparedStatement stmt = connection.prepareStatement(sqlQuery, Statement.NO_GENERATED_KEYS);
+        String sqlQ = "SELECT DISTINCT * FROM ads AS a JOIN ads_has_category AS ac ON a.id = ac.ads_id JOIN categories AS c ON c.id = ac.category_id WHERE a.title LIKE ? OR c.name LIKE ?";
+        PreparedStatement stmt = connection.prepareStatement(sqlQ, Statement.NO_GENERATED_KEYS);
         stmt.setString(1, "%" + keyword +"%");
+        stmt.setString(2, "%" + keyword +"%");
         stmt.executeQuery();
         ResultSet rs = stmt.getResultSet();
 

@@ -10,19 +10,21 @@
     <jsp:include page="/WEB-INF/partials/head.jsp">
         <jsp:param name="title" value="Create Category"/>
     </jsp:include>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/index.css">
 </head>
 <body>
-<jsp:include page="/WEB-INF/partials/navbar.jsp" />
-<div class="container">
+<jsp:include page="/WEB-INF/partials/navbar.jsp"/>
+<div class="container mt-5" id="category-container">
     <h1>Create a new category</h1>
     <form action="${pageContext.request.contextPath}/category/create" method="post">
         <div class="form-group">
             <label for="category">Category Name</label>
             <input id="category" name="category" class="form-control" type="text">
         </div>
-        <input type="submit" class="btn btn-block btn-primary">
+        <input type="submit" class="btn btn-block btn-success">
     </form>
 </div>
+
 <jsp:include page="../partials/bootstrap-scripts.jsp"/>
 </body>
 </html>

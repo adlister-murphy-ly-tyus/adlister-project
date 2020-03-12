@@ -28,8 +28,6 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 
         User oldUser = (User) request.getSession().getAttribute("user");
         try {
-            System.out.println(email);
-            System.out.println(phoneNumber);
             User newUser =  new User(oldUser.getId(), oldUser.getUsername(), email, oldUser.getPassword(), phoneNumber);
             request.getSession().setAttribute("user", newUser);
             usersSqlDao.update(oldUser, newUser);

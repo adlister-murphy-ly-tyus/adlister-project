@@ -1,8 +1,10 @@
 package com.codeup.adlister.controllers;
 
+import com.codeup.adlister.dao.AdCategorySQLDao;
 import com.codeup.adlister.dao.Ads;
 import com.codeup.adlister.dao.DaoFactory;
 import com.codeup.adlister.models.Ad;
+import com.codeup.adlister.models.Category;
 import com.codeup.adlister.models.User;
 
 import javax.servlet.ServletException;
@@ -12,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.List;
 
 @WebServlet(urlPatterns = "/ads/update")
 public class AdsUpdateServlet extends HttpServlet {
@@ -38,6 +41,8 @@ public class AdsUpdateServlet extends HttpServlet {
         String description = request.getParameter("description");
         double price = Double.parseDouble(request.getParameter("price"));
         String imgUrl = request.getParameter("imgUrl");
+
+
         try {
             Ad oldAd = adsSqlDao.findAdById(id);
             User user = (User) request.getSession().getAttribute("user");

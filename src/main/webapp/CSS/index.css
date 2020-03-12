@@ -1,44 +1,54 @@
-body{
-border: black 2vw solid;
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    border: black 2vw solid;
 }
 
 .jumbotron {
     background-image: url("/images/vault.jpg");
-    background-size: cover;
-    min-height: 75vh;
+    /*background-size: cover;*/
+    /*min-height: 75vh;*/
     height: auto;
     width: 96vw;
     position: center;
     z-index: -1;
 }
-.card{
-    margin: 10px auto;
-    border: black 3px solid;
+
+.trant {
+    font-size: 3em;
+    text-align: center;
+    color: darkorange;
+    font-family: 'Pacifico', cursive;
 }
 
-#welcome{
+.transparent-black {
+    background-color: rgba(0, 0, 0, .5);
+}
+
+.black-highlight {
+    text-shadow: 2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000, 1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
+}
+
+.card {
+    background-color: lightgray;
+}
+
+
+#welcome {
     text-align: center;
     color: lightseagreen;
     font-family: 'Pacifico', cursive;
 }
-#intro{
+
+#intro {
     font-size: 3em;
     text-align: center;
     color: whitesmoke;
     font-family: 'Roboto', sans-serif;
 }
-.trant{
-    font-size: 3em;
-    text-align: center;
-    color: darkorange;
-    font-family:'Pacifico', cursive;
-}
-.transparent-black{
-    background-color: rgba(0, 0, 0, .5);
-}
 
-.black-highlight{
-    text-shadow: 2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000, 1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
-
-
+#category-container {
+    height: 100vh;
 }

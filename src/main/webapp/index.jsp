@@ -7,7 +7,6 @@
        <jsp:param name="title" value="Welcome to Buy it or sell it!" />
     </jsp:include>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/index.css">
-    <link href="https://fonts.googleapis.com/css?family=Pacifico|Roboto&display=swap" rel="stylesheet">
 </head>
 <body>
 

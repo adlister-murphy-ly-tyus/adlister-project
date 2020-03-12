@@ -6,10 +6,6 @@ import com.mysql.cj.jdbc.Driver;
 import java.sql.*;
 
 public class MySQLUsersDao implements Users {
-
-
-
-
     private Connection connection;
 
     public MySQLUsersDao(Config config) {
@@ -80,14 +76,12 @@ public class MySQLUsersDao implements Users {
     public Long update(User user, User newUser) throws SQLException {
         String sqlQuery = "UPDATE users SET email = ?, phone_number = ? WHERE username = ?";
         PreparedStatement stmt = connection.prepareStatement(sqlQuery, Statement.RETURN_GENERATED_KEYS);
-        System.out.println("here" + newUser.getEmail());
         stmt.setString(1, newUser.getEmail());
         stmt.setString(2, newUser.getPhoneNumber());
         stmt.setString(3, user.getUsername());
         stmt.executeUpdate();
         ResultSet rs = stmt.getGeneratedKeys();
         rs.next();
-        System.out.println("here" + rs.getLong(1));
         return rs.getLong(1);
     }
 

@@ -19,7 +19,7 @@
                 </c:when>
                 <c:otherwise>
                     <li class="nav-item"><a class="nav-link" href="/register">Register with us!</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/login">Log In</a></li>
                 </c:otherwise>
             </c:choose>
         </ul>

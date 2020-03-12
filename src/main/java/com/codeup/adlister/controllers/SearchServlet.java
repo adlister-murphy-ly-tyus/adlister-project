@@ -18,13 +18,8 @@ public class SearchServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String searchString = request.getParameter("search");
-//        System.out.println(searchString);
         try {
             List<Ad> adList = DaoFactory.getAdsDao().searchAds(searchString);
-            System.out.println(adList);
-            for (Ad ad : adList) {
-                System.out.println(ad.getTitle());
-            }
             request.setAttribute("ads", DaoFactory.getAdsDao().searchAds(searchString));
         } catch (SQLException se) {
             se.printStackTrace();

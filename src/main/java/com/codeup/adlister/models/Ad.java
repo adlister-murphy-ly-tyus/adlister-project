@@ -9,7 +9,7 @@ public class Ad {
     private String imgUrl;
 
 
-    public Ad(long id, long userId, String title, double price, String description,  String imgUrl) {
+    public Ad(long id, long userId, String title, double price, String description, String imgUrl) {
         this.id = id;
         this.userId = userId;
         this.title = title;
