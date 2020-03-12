@@ -49,8 +49,8 @@ CREATE TABLE IF NOT EXISTS `adlister_db`.`ads` (
   CONSTRAINT `user_id`
     FOREIGN KEY (`user_id`)
     REFERENCES `adlister_db`.`users` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB
 AUTO_INCREMENT = 6
 DEFAULT CHARACTER SET = utf8;
@@ -80,13 +80,13 @@ CREATE TABLE IF NOT EXISTS `adlister_db`.`ads_has_category` (
   CONSTRAINT `fk_ads_has_category_ads1`
     FOREIGN KEY (`ads_id`)
     REFERENCES `adlister_db`.`ads` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
   CONSTRAINT `fk_ads_has_category_category1`
     FOREIGN KEY (`category_id`)
     REFERENCES `adlister_db`.`categories` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
@@ -103,13 +103,13 @@ CREATE TABLE IF NOT EXISTS `adlister_db`.`favorites` (
   CONSTRAINT `fk_users_has_ads_users1`
     FOREIGN KEY (`users_id`)
     REFERENCES `adlister_db`.`users` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
   CONSTRAINT `fk_users_has_ads_ads1`
     FOREIGN KEY (`ads_id`)
     REFERENCES `adlister_db`.`ads` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
