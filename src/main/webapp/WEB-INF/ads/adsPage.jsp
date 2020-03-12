@@ -22,8 +22,19 @@
             <p class="card-text my-3">Description: <c:out value="${ads.description}"/></p>
             <p class="card-text my-3 font-weight-bold">Categories :</p>
             <c:forEach var="category" items="${categories}">
-                <span>[<c:out value="${category.toUpperCase()}"/>]</span>
+                <span style="color: green">[ <c:out value="${category.toUpperCase()}"/> ]</span>
             </c:forEach>
+            <c:set var="matched" value="false"/>
+            <c:forEach var="favorite" items="${sessionScope.favorites}">
+                <c:if test="${(sessionScope.user == null) || (sessionScope.user.id == adCreator.id) || (favorite.id == ads.id)}">
+                    <c:set var="matched" value="true"/>
+                </c:if>
+            </c:forEach>
+            <c:if test="${matched == false && sessionScope.user != null}">
+                <br>
+                <a href="${pageContext.request.contextPath}/favorites?id=${ads.id}" class="btn btn-info btn-lg my-3"
+                   role="button" aria-pressed="true">Add to Favorites</a>
+            </c:if>
         </div>
     </div>
 </div>

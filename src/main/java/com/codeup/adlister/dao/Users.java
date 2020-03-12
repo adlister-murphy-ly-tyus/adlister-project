@@ -14,4 +14,8 @@ public interface Users {
 
     // update an ad
     Long update(User user, User newUser) throws SQLException;
+
+    List<Ad> getFavorites(long userId) throws SQLException;
+    boolean insertFavorite(long userId, long adId) throws SQLException;
+    boolean removeFavorite(long userId, long adId) throws SQLException;
 }
