@@ -14,7 +14,7 @@
     <h1 class="mx-4 mt-5 mb-3 font-weight-bold">Ad Page</h1>
 </div>
 <div class="container-fluid d-flex flex-wrap overflow-auto">
-    <div class="card mx-4 my-3" style="width: 24rem;">
+    <div class="card mx-4 my-3" id="ad-card" style="width: 24rem;">
         <div class="card-body">
             <h4 class="card-title my-3 font-weight-bold">Title: <c:out value="${ads.title}"/></h4>
             <h5 class="card-subtitle mb-2 text-success my-3 font-italic">Price: <fmt:formatNumber type="currency"

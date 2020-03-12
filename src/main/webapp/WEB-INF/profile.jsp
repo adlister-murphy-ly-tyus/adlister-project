@@ -12,7 +12,7 @@
 <jsp:include page="/WEB-INF/partials/navbar.jsp"/>
 <div class="container-fluid">
     <h1 class="mx-3 my-3">Welcome, <c:out value="${sessionScope.user.username.toUpperCase()}"/>!</h1>
-    <div class="card mx-3 my-3" style="width: 24rem;">
+    <div class="card mx-3 my-3" id= "ad-card" style="width: 24rem;">
         <div class="card-body">
             <h5 class="card-title my-3">Username: <c:out value="${sessionScope.user.username}"/></h5>
             <h5 class="card-title my-3">Email: <c:out value="${sessionScope.user.email}"/></h5>

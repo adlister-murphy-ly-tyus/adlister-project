@@ -21,6 +21,7 @@ public class AdsDeleteServlet extends HttpServlet {
         Ads adsSqlDao = DaoFactory.getAdsDao();
         try {
             adsSqlDao.delete(id);
+
         } catch (SQLException e) {
             e.printStackTrace();
         }

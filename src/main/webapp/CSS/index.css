@@ -33,6 +33,7 @@ body {
 
 .card {
     background-color: lightgray;
+    border: black 5px solid;
 }
 
 
@@ -51,4 +52,12 @@ body {
 
 #category-container {
     height: 100vh;
+}
+
+.btn-success {
+     background-color: darkgreen;
+}
+
+.btn{
+    border: black 2px  solid;
 }

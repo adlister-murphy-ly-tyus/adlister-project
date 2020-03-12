@@ -24,7 +24,7 @@
         </div>
         <div class="form-group">
             <label for="price">Price</label>
-            <input id="price" name="price" class="form-control" type="number" value="${ad.price}"/>
+            <input id="price" name="price" class="form-control" type="text" value="${ad.price}"/>
         </div>
         <div class="form-group">
             <label for="imgUrl">Image</label>

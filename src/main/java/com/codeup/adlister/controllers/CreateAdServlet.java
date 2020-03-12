@@ -56,6 +56,7 @@ public class CreateAdServlet extends HttpServlet {
                     adCategorySQLDao.insert(adId, categorySQLDao.findCategoryByName(selectedCategory));
                 }
             }
+            request.getSession().setAttribute("adCreator",DaoFactory.getAdsDao().findAdById((int) adId));
         } catch (SQLException e) {
             e.printStackTrace();
         }

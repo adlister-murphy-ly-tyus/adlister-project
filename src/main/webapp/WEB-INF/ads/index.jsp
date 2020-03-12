@@ -18,7 +18,7 @@
 </div>
 <div class="container-fluid d-flex flex-wrap">
     <c:forEach var="ad" items="${ads}">
-        <div class="card mx-4 my-3" style="width: 24rem;">
+        <div class="card mx-4 my-3" id="ad-card" style="width: 24rem;">
             <div class="card-body">
                 <h4 class="card-title my-3 font-weight-bold">Title: <c:out value="${ad.title}"/></h4>
                 <h5 class="card-subtitle mb-2 text-success my-3 font-italic">Price: <fmt:formatNumber type="currency"
