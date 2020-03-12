@@ -32,7 +32,8 @@
         <div class="card mx-4 my-3" style="width: 24rem;">
             <div class="card-body">
                 <h4 class="card-title my-3 font-weight-bold">Title: <c:out value="${ad.title}"/></h4>
-                <h5 class="card-subtitle mb-2 text-success my-3 font-italic">Price: <fmt:formatNumber type="currency" value="${ad.price}"/></h5>
+                <h5 class="card-subtitle mb-2 text-success my-3 font-italic">Price: <fmt:formatNumber type="currency"
+                                                                                                      value="${ad.price}"/></h5>
                 <p class="card-text my-3">Description: <c:out value="${ad.description}"/></p>
                 <a href="${pageContext.request.contextPath}/adsPage?id=${ad.id}" class="btn btn-success btn-lg my-3"
                    role="button" aria-pressed="true">Ad Page</a>
@@ -44,6 +45,30 @@
         </div>
     </c:forEach>
 </div>
+
+<div class="container-fluid">
+    <h1 class="mx-4 mt-5 mb-3">Favorites</h1>
+</div>
+
+<div class="container-fluid d-flex flex-wrap overflow-auto">
+    <c:forEach var="favorite" items="${sessionScope.favorites}">
+        <div class="card mx-4 my-3" style="width: 24rem;">
+            <div class="card-body">
+                <h4 class="card-title my-3 font-weight-bold">Title: <c:out value="${favorite.title}"/></h4>
+                <h5 class="card-subtitle mb-2 text-success my-3 font-italic">Price: <fmt:formatNumber type="currency"
+                                                                                                      value="${favorite.price}"/></h5>
+                <p class="card-text my-3">Description: <c:out value="${favorite.description}"/></p>
+                <a href="${pageContext.request.contextPath}/adsPage?id=${favorite.id}"
+                   class="btn btn-success btn-block my-2"
+                   role="button" aria-pressed="true">Ad Page</a>
+                <form action="${pageContext.request.contextPath}/favorites?id=${favorite.id}" method="post">
+                    <button type="submit" class="btn btn-block btn-danger my-2">Remove from Favorites</button>
+                </form>
+            </div>
+        </div>
+    </c:forEach>
+</div>
+
 <jsp:include page="partials/bootstrap-scripts.jsp"/>
 </body>
 </html>

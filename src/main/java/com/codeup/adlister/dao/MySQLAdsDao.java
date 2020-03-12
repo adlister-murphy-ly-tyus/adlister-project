@@ -54,16 +54,14 @@ public class MySQLAdsDao implements Ads {
     @Override
     public List<Ad> searchAds(String keyword) throws SQLException {
         List<Ad> adList = new ArrayList<>();
-        String sqlQuery = "SELECT * FROM ads WHERE title LIKE ?";
-        String sqlQ = "SELECT DISTINCT * FROM ads AS a JOIN ads_has_category AS ac ON a.id = ac.ads_id JOIN categories AS c ON c.id = ac.category_id WHERE a.title LIKE ? OR c.name LIKE ?";
-        PreparedStatement stmt = connection.prepareStatement(sqlQ, Statement.NO_GENERATED_KEYS);
-        stmt.setString(1, "%" + keyword +"%");
-        stmt.setString(2, "%" + keyword +"%");
+        String sqlQuery = "SELECT DISTINCT a.id FROM ads AS a LEFT JOIN ads_has_category AS ac ON a.id = ac.ads_id JOIN categories AS c ON c.id = ac.category_id WHERE a.title LIKE ? OR c.name LIKE ?";
+        PreparedStatement stmt = connection.prepareStatement(sqlQuery, Statement.NO_GENERATED_KEYS);
+        stmt.setString(1, "%" + keyword + "%");
+        stmt.setString(2, "%" + keyword + "%");
         stmt.executeQuery();
         ResultSet rs = stmt.getResultSet();
-
         while (rs.next()) {
-            adList.add(extractAd(rs));
+            adList.add(findAdById(rs.getInt("id")));
         }
         return adList;
     }

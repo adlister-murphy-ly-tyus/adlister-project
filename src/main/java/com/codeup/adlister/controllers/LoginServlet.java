@@ -1,6 +1,7 @@
 package com.codeup.adlister.controllers;
 
 import com.codeup.adlister.dao.DaoFactory;
+import com.codeup.adlister.models.Ad;
 import com.codeup.adlister.models.User;
 import org.mindrot.jbcrypt.BCrypt;
 
@@ -37,7 +38,13 @@ public class LoginServlet extends HttpServlet {
         boolean passwordsMatch = BCrypt.checkpw(password, user.getPassword());
         if (passwordsMatch) {
             request.getSession().setAttribute("user", user);
-            if(request.getSession().getAttribute("marker") != null) {
+            try {
+                List<Ad> userFavorites = DaoFactory.getUsersDao().getFavorites(user.getId());
+                request.getSession().setAttribute("favorites", userFavorites);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            if (request.getSession().getAttribute("marker") != null) {
                 response.sendRedirect(request.getSession().getAttribute("marker").toString());
                 return;
             }
